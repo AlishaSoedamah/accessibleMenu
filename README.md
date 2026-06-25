@@ -18,7 +18,16 @@ Filters die al op de huidige site staan:
 - [x] hoog/laag contrast -> met borders
 - [x] knop naar de compacte website
 
+
+buttons die anders zijn maar wel een variant hebben:
+- Cursor grote
+- Saturation 
+- LineHeight
+- text spacing 
+
 Tailwind + next.js
+
+[styling range](https://flowbite.com/docs/forms/range/)
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
