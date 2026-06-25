@@ -5,7 +5,7 @@ import "react";
 
 declare module "react" {
   interface HTMLAttributes<T> {
-    popover?: "" | "auto" | "manual";
+    popover?: "" | "auto" | "manual" | "hint";
     popovertarget?: string;
     popovertargetaction?: "hide" | "show" | "toggle";
   }
