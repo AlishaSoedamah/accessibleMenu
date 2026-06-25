@@ -1,3 +1,25 @@
+# Plan
+
+Dit is een aanvulling op de meesterproef van de minor web design en development. In deze aanvulling
+heb ik met mijn coach besproken wat mijn leerdoelen waren voor de meesterproef en hoe deze terug zouden kunnen komen in dit prototype. Uiteindelijk kwammen we tot de conlusie dat ik het toegankelijkheidsmenu ga verbeteren met meer opties zoals custom fonts/grotere cursor opties en nog meer features die ik niet op de uiteindelijke versie had kunnen maken.
+
+Filters die ik erbij wil doen:
+- [ ] groter/kleinere cursor
+- [ ] custom fonts
+- [ ] Grijstinten
+- [ ] kleurenblind filters
+- [ ] borders
+- [ ] hoog contrast apart van de borders
+- [ ] line height/line spacing
+
+
+Filters die al op de huidige site staan:
+- [x] groter/kleinere tekst
+- [x] hoog/laag contrast -> met borders
+- [x] knop naar de compacte website
+
+Tailwind + next.js
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
