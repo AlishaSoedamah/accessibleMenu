@@ -11,7 +11,7 @@ export default function Home() {
                 <h1 className="text-7xl">Toegankelijkheidsmenu</h1>
                 <p>
                   dit is een test pagina voor het toegankelijkheids menu stuff more stuff....
-                  test pagina hiii
+                  test pagina hiii Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore magni quae perspiciatis et dolorum at in nulla, magnam exercitationem quia ipsam ad minima, rem aperiam doloremque aut quo eligendi aliquam?
                 </p>
               </section>
               <section>
