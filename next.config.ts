@@ -5,10 +5,8 @@ const nextConfig: NextConfig =  {
   images: {
     unoptimized: true
   },
-  basePath: '/your-repo-name',
-  assetPrefix: '/your-repo-name/',
+  basePath: '/accessibleMenu',
+  assetPrefix: '/accessibleMenu/',
 };
-
-module.exports = nextConfig;
 
 export default nextConfig;
