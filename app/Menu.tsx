@@ -12,22 +12,34 @@ declare module "react" {
 }
 
 export default function Menu() {
+
+    const toggleBorders = () => {
+    const root = document.documentElement;
+    const current = getComputedStyle(root).getPropertyValue("--border-toggle").trim();
+  
+    if (current === "none") {
+      root.style.setProperty("--border-toggle", "3px solid var(--high-contrast)");
+    } else {
+      root.style.setProperty("--border-toggle", "none");
+    }
+  };
+
     return (
         <>
         <button popoverTarget="mypopover">Toggle the popover</button>
         <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black w-md">
             <nav className="rounded py-8 px-8">
-                <ul>
+                <ul role="list">
                     <li>
                         <button className="my-2 cursor-pointer bg-red hover:bg-pink-100 text-white font-bold py-2 px-4 rounded">
                             Compacte versie
                         </button>
                     </li>
-                    <Button name="Kleurenblind Filter"/>
-                    <Button name="Hoog contrast"/>
-                    <Button name="Borders"/>
-                    <Button name="Negatief"/>
-                    <Button name="Custom lettertype"/>
+                    <Button btnId="kleurenBlind" name="Kleurenblind Filter"/>
+                    <Button btnId="hoogContrast" name="Hoog contrast"/>
+                    <Button btnId="borders" name="Borders" onClick={toggleBorders}/>
+                    <Button btnId="negatief" name="Negatief"/>
+                    <Button btnId="customFont" name="Custom lettertype"/>
                     <ButtonSlider name="Line Height"/>
                     <ButtonSlider name="Line Spacing"/>
                     <ButtonSlider name="Saturation"/>

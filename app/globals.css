@@ -4,6 +4,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --red: #AF2900;
+  --high-contrast: white;
+  --border-toggle: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,11 +22,18 @@ body {
   box-sizing: border-box;
 }
 
-[popover]:popover-open {
-  border: 3px solid white;
+label {
+  color: var(--foreground);
 }
 
+[popover]:popover-open {
+  border: 3px solid var(--high-contrast);
+}
 
 .bg-red {
   background: var(--red);
+}
+
+h1, h2, h3, h4, a, div, input, textarea {
+  border: var(--border-toggle);
 }
