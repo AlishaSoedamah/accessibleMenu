@@ -34,10 +34,14 @@ label {
   background: var(--red);
 }
 
-h1, h2, h3, h4, a, div, input, textarea {
+h1, h2, h3, h4, a, div, textarea {
   border: var(--border-toggle);
 }
 
 .inverted {
   filter: invert(1);
+}
+
+.saturation {
+  filter: saturate(1);
 }

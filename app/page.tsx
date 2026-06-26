@@ -2,9 +2,7 @@
 
 import Menu from "./Menu";
 import Layout from "./Layout";
-// import { useEffect } from "react";
 import Form from "./Form";
-
 
 export default function Home() {
   return (
@@ -13,14 +11,16 @@ export default function Home() {
           <Menu />
             <article>
               <section>
-                <h1 className="py-8 text-7xl">Toegankelijkheidsmenu</h1>
+                <h1 className="py-8 lg:text-7xl md:text-4xl">Toegankelijkheidsmenu</h1>
                 <p>
                   Dit is een test pagina voor het toegankelijkheids menu stuff more stuff....
-                  test pagina hiii Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore magni quae perspiciatis et dolorum at in nulla, magnam exercitationem quia ipsam ad minima, rem aperiam doloremque aut quo eligendi aliquam?
+                  test pagina hiii Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Inventore magni quae perspiciatis et dolorum at in nulla, magnam exercitationem 
+                  quia ipsam ad minima, rem aperiam doloremque aut quo eligendi aliquam?
                 </p>
               </section>
               <section>
-                <h1 className="py-8 text-7xl">Interactieve</h1>
+                <h1 className="py-8 lg:text-7xl md:text-4xl">Interactieve</h1>
                 <button className="btn btn-blue">Een knop</button>
                 <Form />
               </section>
