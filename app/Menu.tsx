@@ -3,11 +3,6 @@ import ButtonSlider from "./ButtonSlider";
 import "react";
 import { useRef } from "react";
 
-const handleStyle = (property: keyof CSSStyleDeclaration) => 
-  (e: React.ChangeEvent<HTMLInputElement>) => {
-    document.documentElement.style[property] = e.target.value + "px";
-};
-
 declare module "react" {
   interface HTMLAttributes<T> {
     popover?: "" | "auto" | "manual" | "hint";
@@ -15,6 +10,11 @@ declare module "react" {
     popovertargetaction?: "hide" | "show" | "toggle";
   }
 }
+
+const handleStyle = (property: keyof Omit<CSSStyleDeclaration, "length" | "parentRule">) =>
+  (e: React.ChangeEvent<HTMLInputElement>) => {
+    (document.documentElement.style as any)[property] = e.target.value + "px";
+  };
 
 export default function Menu() {
 
@@ -44,7 +44,7 @@ export default function Menu() {
             <nav className="rounded py-8 px-8">
                 <ul role="list">
                     <li>
-                        <button className="my-2 cursor-pointer bg-red hover:bg-pink-100 text-white font-bold py-2 px-4 rounded">
+                        <button className="w-full my-2 cursor-pointer bg-red hover:bg-pink-100 text-white font-bold py-2 px-4 rounded">
                             Compacte versie
                         </button>
                     </li>
