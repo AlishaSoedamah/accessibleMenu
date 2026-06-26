@@ -6,11 +6,11 @@ heb ik met mijn coach besproken wat mijn leerdoelen waren voor de meesterproef e
 Filters die ik erbij wil doen:
 - [ ] groter/kleinere cursor
 - [ ] custom fonts
-- [ ] Grijstinten
 - [ ] kleurenblind filters
-- [ ] borders
 - [ ] hoog contrast apart van de borders
-- [ ] line height/line spacing
+- [x] Grijstinten
+- [x] borders
+- [x] line height/line spacing
 
 
 Filters die al op de huidige site staan:

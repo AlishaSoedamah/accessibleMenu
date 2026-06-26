@@ -18,6 +18,7 @@ export default function Home() {
                   Inventore magni quae perspiciatis et dolorum at in nulla, magnam exercitationem 
                   quia ipsam ad minima, rem aperiam doloremque aut quo eligendi aliquam?
                 </p>
+                <div className="box-deco" ></div>
               </section>
               <section>
                 <h1 className="py-8 lg:text-7xl md:text-4xl">Interactieve</h1>

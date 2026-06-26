@@ -51,3 +51,9 @@ h1, h2, h3, h4, a, div, textarea {
 .saturation {
   filter: saturate(1);
 }
+
+.box-deco {
+  width: 100px;
+  aspect-ratio: 1;
+  background-color: red;
+}

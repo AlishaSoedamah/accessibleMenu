@@ -14,7 +14,12 @@ declare module "react" {
 const handleStyle = (property: keyof Omit<CSSStyleDeclaration, "length" | "parentRule">) =>
   (e: React.ChangeEvent<HTMLInputElement>) => {
     (document.documentElement.style as any)[property] = e.target.value + "px";
-  };
+};
+
+const handleFilter = (filter: string) =>
+  (e: React.ChangeEvent<HTMLInputElement>) => {
+    document.documentElement.style.filter = `${filter}(${e.target.value}%)`;
+};
 
 export default function Menu() {
 
@@ -53,11 +58,10 @@ export default function Menu() {
                     <Button btnId="borders" name="Borders" onClick={toggleBorders}/>
                     <Button btnId="negatief" name="Negatief" onClick={toggleNegatief}/>
                     <Button btnId="customFont" name="Custom lettertype"/>
-                    <ButtonSlider ref={sliderLetterBig} id="letterBig" name="Letter grote" onChange={handleStyle("fontSize")}/>
-                    <ButtonSlider ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")}/>
-                    <ButtonSlider ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")}/>
-                    {/* <ButtonSlider id="saturation" name="Saturation" onChange={toggleSat}/> */}
-                    {/* <ButtonSlider id="grayscale" name="Grayscale"/> */}
+                    <ButtonSlider min={"10"} max={"60"} initValue={"10"} ref={sliderLetterBig} id="letterBig" name="Letter grote" onChange={handleStyle("fontSize")}/>
+                    <ButtonSlider min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")}/>
+                    <ButtonSlider min={"0"} max={"20"} initValue={"0"}  ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")}/>
+                    <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Grijs tinten" onChange={handleFilter("saturate")}/>
                     {/* <ButtonSlider id="cursorGrote" name="Cursor grote"/> */}
                 </ul>
             </nav>
