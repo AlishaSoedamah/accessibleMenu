@@ -37,3 +37,7 @@ label {
 h1, h2, h3, h4, a, div, input, textarea {
   border: var(--border-toggle);
 }
+
+.inverted {
+  filter: invert(1);
+}

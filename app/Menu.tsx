@@ -1,7 +1,16 @@
 import Button from "./Button";
 import ButtonSlider from "./ButtonSlider";
-
 import "react";
+import { useRef } from "react";
+
+
+const handleFontSize = (e: React.ChangeEvent<HTMLInputElement>) => {
+  document.documentElement.style.fontSize = e.target.value + "px";
+};
+
+const handleLineHeight = (e: React.ChangeEvent<HTMLInputElement>) => {
+  document.documentElement.style.lineHeight = e.target.value + "px";
+};
 
 declare module "react" {
   interface HTMLAttributes<T> {
@@ -13,16 +22,23 @@ declare module "react" {
 
 export default function Menu() {
 
+    const sliderLetterBig = useRef<HTMLInputElement>(null);
+    const sliderLineHeight = useRef<HTMLInputElement>(null);
+    const sliderRef = useRef<HTMLInputElement>(null);
+
     const toggleBorders = () => {
     const root = document.documentElement;
     const current = getComputedStyle(root).getPropertyValue("--border-toggle").trim();
-  
-    if (current === "none") {
-      root.style.setProperty("--border-toggle", "3px solid var(--high-contrast)");
-    } else {
-      root.style.setProperty("--border-toggle", "none");
-    }
-  };
+
+    root.style.setProperty(
+        "--border-toggle",
+        current === "none" ? "3px solid var(--high-contrast)" : "none"
+        );
+    };
+
+    const toggleNegatief = () => {
+        document.documentElement.classList.toggle("inverted");
+    };
 
     return (
         <>
@@ -35,16 +51,18 @@ export default function Menu() {
                             Compacte versie
                         </button>
                     </li>
+        
                     <Button btnId="kleurenBlind" name="Kleurenblind Filter"/>
                     <Button btnId="hoogContrast" name="Hoog contrast"/>
                     <Button btnId="borders" name="Borders" onClick={toggleBorders}/>
-                    <Button btnId="negatief" name="Negatief"/>
+                    <Button btnId="negatief" name="Negatief" onClick={toggleNegatief}/>
                     <Button btnId="customFont" name="Custom lettertype"/>
-                    <ButtonSlider name="Line Height"/>
-                    <ButtonSlider name="Line Spacing"/>
-                    <ButtonSlider name="Saturation"/>
-                    <ButtonSlider name="Grayscale"/>
-                    <ButtonSlider name="Cursor grote"/>
+                    <ButtonSlider ref={sliderLetterBig} id="letterBig" name="Letter grote" onChange={handleFontSize}/>
+                    <ButtonSlider ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleLineHeight}/>
+                    {/* <ButtonSlider id="lineSpacing" name="Line Spacing"/>
+                    <ButtonSlider id="saturation" name="Saturation"/>
+                    <ButtonSlider id="grayscale" name="Grayscale"/>
+                    <ButtonSlider id="cursorGrote" name="Cursor grote"/> */}
                 </ul>
             </nav>
         </header>
