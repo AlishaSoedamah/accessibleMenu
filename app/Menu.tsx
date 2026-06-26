@@ -26,7 +26,6 @@ export default function Menu() {
     const sliderLetterBig = useRef<HTMLInputElement>(null);
     const sliderLineHeight = useRef<HTMLInputElement>(null);
     const sliderSpacing = useRef<HTMLInputElement>(null);
-    const sliderRef = useRef<HTMLInputElement>(null);
 
     const toggleBorders = () => {
     const root = document.documentElement;
@@ -38,13 +37,17 @@ export default function Menu() {
         );
     };
 
-    const toggleNegatief = () => {
-        document.documentElement.classList.toggle("inverted");
+    const toggleHighContrast = () => {
+        document.documentElement.classList.toggle("highcontrast");
+    };
+
+    const toggleChangeFont = () => {
+        document.documentElement.classList.toggle('alt-font');
     };
 
     return (
         <>
-        <button popoverTarget="mypopover">Toggle the popover</button>
+        <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
         <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black md:w-md sm:w-sm">
             <nav className="rounded py-8 px-8">
                 <ul role="list">
@@ -53,15 +56,13 @@ export default function Menu() {
                             Compacte versie
                         </button>
                     </li>
-                    <Button btnId="kleurenBlind" name="Kleurenblind Filter"/>
-                    <Button btnId="hoogContrast" name="Hoog contrast"/>
+                    <Button btnId="hoogContrast" name="Hoog contrast" onClick={toggleHighContrast}/>
                     <Button btnId="borders" name="Borders" onClick={toggleBorders}/>
-                    <Button btnId="negatief" name="Negatief" onClick={toggleNegatief}/>
-                    <Button btnId="customFont" name="Custom lettertype"/>
+                    <Button btnId="customFont" name="Custom lettertype" onClick={toggleChangeFont}/>
                     <ButtonSlider min={"10"} max={"60"} initValue={"10"} ref={sliderLetterBig} id="letterBig" name="Letter grote" onChange={handleStyle("fontSize")}/>
                     <ButtonSlider min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")}/>
                     <ButtonSlider min={"0"} max={"20"} initValue={"0"}  ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")}/>
-                    <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Grijs tinten" onChange={handleFilter("saturate")}/>
+                    <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")}/>
                     {/* <ButtonSlider id="cursorGrote" name="Cursor grote"/> */}
                 </ul>
             </nav>

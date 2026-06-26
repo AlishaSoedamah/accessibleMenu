@@ -10,12 +10,13 @@ Filters die ik erbij wil doen:
 - [ ] hoog contrast apart van de borders
 - [x] Grijstinten
 - [x] borders
-- [x] line height/line spacing
+- [x] line height
+- [x] line spacing
 
 
 Filters die al op de huidige site staan:
 - [x] groter/kleinere tekst
-- [x] hoog/laag contrast -> met borders
+- [x] hoog/laag contrast met borders -> nu aparte buttons
 - [x] knop naar de compacte website
 
 
@@ -23,7 +24,7 @@ buttons die anders zijn maar wel een variant hebben:
 - Cursor grote
 - Saturation 
 - LineHeight
-- text spacing 
+- text customisation
 
 Tailwind + next.js
 
