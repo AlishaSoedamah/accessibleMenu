@@ -30,6 +30,7 @@ export default function RootLayout({
           <link rel="preconnect" href="https://fonts.googleapis.com"></link>
           <link rel="preconnect" href="https://fonts.gstatic.com"></link>
           <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet"></link>
+          <title>Menu</title>
         </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

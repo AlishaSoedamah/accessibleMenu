@@ -45,17 +45,17 @@ export default function Menu() {
         document.documentElement.classList.toggle('alt-font');
     };
 
+    const toggleCompact = () => {
+        //
+    };
+
     return (
         <>
         <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
         <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black">
             <nav>
                 <ul role="list">
-                    <li>
-                        <button className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
-                            Compacte versie
-                        </button>
-                    </li>
+                    <Button btnId="compact" name="Compacte tekst" onClick={toggleCompact}/>
                     <Button btnId="hoogContrast" name="Hoog contrast" onClick={toggleHighContrast}/>
                     <Button btnId="borders" name="Borders" onClick={toggleBorders}/>
                     <Button btnId="customFont" name="Custom lettertype" onClick={toggleChangeFont}/>
@@ -64,7 +64,11 @@ export default function Menu() {
                     <ButtonSlider min={"0"} max={"20"} initValue={"0"}  ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")}/>
                     <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")}/>
                     {/* <ButtonSlider id="cursorGrote" name="Cursor grote"/> */}
-                    {/* <Button btnId="reset" name="reset" onClick={resetBtn}/> */}
+                     <li>
+                        <button className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
+                            Reset
+                        </button>
+                    </li>
 
                 </ul>
             </nav>
