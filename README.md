@@ -5,9 +5,8 @@ heb ik met mijn coach besproken wat mijn leerdoelen waren voor de meesterproef e
 
 Filters die ik erbij wil doen:
 - [ ] groter/kleinere cursor
-- [ ] custom fonts
-- [ ] kleurenblind filters
-- [ ] hoog contrast apart van de borders
+- [x] custom fonts
+- [x] hoog contrast apart van de borders
 - [x] Grijstinten
 - [x] borders
 - [x] line height
@@ -26,7 +25,7 @@ buttons die anders zijn maar wel een variant hebben:
 - LineHeight
 - text customisation
 
-Tailwind + next.js
+Tailwind + next.js + whatever custom css
 
 [styling range](https://flowbite.com/docs/forms/range/)
 
