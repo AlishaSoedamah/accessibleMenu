@@ -48,11 +48,11 @@ export default function Menu() {
     return (
         <>
         <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
-        <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black md:w-md sm:w-sm">
-            <nav className="rounded py-8 px-8">
+        <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black">
+            <nav>
                 <ul role="list">
                     <li>
-                        <button className="w-full my-2 cursor-pointer bg-red hover:bg-pink-100 text-white font-bold py-2 px-4 rounded">
+                        <button className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
                             Compacte versie
                         </button>
                     </li>
@@ -64,6 +64,8 @@ export default function Menu() {
                     <ButtonSlider min={"0"} max={"20"} initValue={"0"}  ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")}/>
                     <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")}/>
                     {/* <ButtonSlider id="cursorGrote" name="Cursor grote"/> */}
+                    {/* <Button btnId="reset" name="reset" onClick={resetBtn}/> */}
+
                 </ul>
             </nav>
         </header>

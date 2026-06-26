@@ -27,26 +27,40 @@ label {
   color: var(--foreground);
 }
 
+header, header * {
+  font-size: 16px !important;
+}
+
 header {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: normal;
-  nav {
-    ul {
-      li {
-        button {
-          font-size: 16px;
-        }
-        label {
-          font-size: 16px;
-        }
-      }
-    }
-  }
+}
+
+nav {
+  padding: 15px 20px;
+}
+
+label {
+  margin: 10px 0;
+}
+
+input {
+  height: 4px;
+}
+
+button {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
 }
 
 [popover]:popover-open {
   border: 3px solid var(--high-contrast);
+}
+
+form > input {
+  height: 30px;
 }
 
 .bg-red {
