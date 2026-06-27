@@ -2,7 +2,7 @@
 
 import Button from "./Button";
 import ButtonSlider from "./ButtonSlider";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface MenuProps {
   showFull: boolean;
@@ -28,9 +28,13 @@ const handleFilter = (filter: string) =>
   };
 
 export default function Menu({ showFull, setShowFull }: MenuProps) {
-  const sliderLetterBig = useRef<HTMLInputElement>(null);
-  const sliderLineHeight = useRef<HTMLInputElement>(null);
-  const sliderSpacing = useRef<HTMLInputElement>(null);
+    const sliderLetterBig = useRef<HTMLInputElement>(null);
+    const sliderLineHeight = useRef<HTMLInputElement>(null);
+    const sliderSpacing = useRef<HTMLInputElement>(null);
+    const [cursorSize, setCursorSize] = useState(24)
+    const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 })
+    const [cursorVisible, setCursorVisible] = useState(false)
+
 
   const toggleBorders = () => {
     const root = document.documentElement;
@@ -49,10 +53,39 @@ export default function Menu({ showFull, setShowFull }: MenuProps) {
     document.documentElement.classList.toggle("alt-font");
   };
 
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+        setCursorPos({ x: e.clientX, y: e.clientY })
+        setCursorVisible(true)
+    }
+    const hide = () => setCursorVisible(false)
+
+    window.addEventListener('mousemove', move)
+    window.addEventListener('mouseleave', hide)
+    return () => {
+        window.removeEventListener('mousemove', move)
+        window.removeEventListener('mouseleave', hide)
+    }
+}, [])
+
   return (
     <>
-      <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
-      <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black">
+    {cursorVisible && (
+      <div style={{
+        position: 'fixed',
+        left: cursorPos.x,
+        top: cursorPos.y,
+        width: cursorSize,
+        height: cursorSize,
+        borderRadius: '50%',
+        background: 'var(--high-contrast)',
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+        zIndex: 9999,
+      }} />
+    )}
+    <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
+    <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black">
         <nav>
           <ul role="list">
             <li>
@@ -70,6 +103,7 @@ export default function Menu({ showFull, setShowFull }: MenuProps) {
             <ButtonSlider min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")} />
             <ButtonSlider min={"0"} max={"20"} initValue={"0"} ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")} />
             <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")} />
+            <ButtonSlider min={"0"} max={"100"} initValue={"24"} id="cursorSize" name="Cursor grote" onChange={(e) => setCursorSize(Number(e.target.value))}/>
             <li>
               <button className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
                 Reset
@@ -77,7 +111,7 @@ export default function Menu({ showFull, setShowFull }: MenuProps) {
             </li>
           </ul>
         </nav>
-      </header>
+    </header>
     </>
   );
 }
