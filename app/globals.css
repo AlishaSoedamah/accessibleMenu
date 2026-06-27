@@ -72,6 +72,11 @@ button {
   border-radius: 5px;
 }
 
+button > img {
+  width: 44px;
+  aspect-ratio: 1;
+}
+
 [popover]:popover-open {
   border: 3px solid var(--high-contrast);
 }

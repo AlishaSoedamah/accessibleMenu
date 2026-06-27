@@ -2,14 +2,14 @@ export default function Form()
 {
 	return (
 		<>
-		<form className="contact-card rounded p-10" action="#" method="post">
+		<form className="lg:w-2/4 md:w-full contact-card rounded p-10" action="#" method="post">
             <h2>Stuur een bericht</h2>
             <label htmlFor="name">Naam</label>
-            <input className="p-4" type="text" id="name" name="name" />
+            <input className="p-4 w-full" type="text" id="name" name="name" />
             <label htmlFor="email">E-mail</label>
-            <input className="p-4" type="email" id="email" name="email"/>
+            <input className="p-4 w-full" type="email" id="email" name="email"/>
             <label htmlFor="message">Bericht</label>
-            <textarea className="p-10" id="message" name="message"></textarea>
+            <textarea className="p-10 w-full" id="message" name="message"></textarea>
             <input className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold" type="submit" value="Verstuur bericht →" />
         </form>
         <aside>
