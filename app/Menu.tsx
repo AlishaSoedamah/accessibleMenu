@@ -37,19 +37,18 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
     const [cursorVisible, setCursorVisible] = useState(false)
     const cursorSrc = "/accessibleMenu/images/cursor.svg"
 
- const handleReset = () => {
-  document.documentElement.style.fontSize = "";
-  document.documentElement.style.lineHeight = "";
-  document.documentElement.style.letterSpacing = "";
-  document.documentElement.style.filter = "";
-  document.documentElement.style.removeProperty("--border-toggle");
-  document.documentElement.classList.remove("highcontrast");
-  document.documentElement.classList.remove("alt-font");
-
-  if (sliderLetterBig.current) sliderLetterBig.current.value = "10";
-  if (sliderLineHeight.current) sliderLineHeight.current.value = "20";
-  if (sliderSpacing.current) sliderSpacing.current.value = "0";
-//   if (sliderSaturation.current) sliderSaturation.current.value = "100";
+    const handleReset = () => {
+        document.documentElement.style.fontSize = "";
+        document.documentElement.style.lineHeight = "";
+        document.documentElement.style.letterSpacing = "";
+        document.documentElement.style.filter = "";
+        document.documentElement.style.removeProperty("--border-toggle");
+        document.documentElement.classList.remove("highcontrast");
+        document.documentElement.classList.remove("alt-font");
+        setCursorSize(Number("24"));
+        if (sliderLetterBig.current) sliderLetterBig.current.value = "10";
+        if (sliderLineHeight.current) sliderLineHeight.current.value = "20";
+        if (sliderSpacing.current) sliderSpacing.current.value = "0";
 
   onReset();
 };
@@ -123,7 +122,7 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
             <ButtonSlider min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")} />
             <ButtonSlider min={"0"} max={"20"} initValue={"0"} ref={sliderSpacing} id="lineSpacing" name="Letter Spacing" onChange={handleStyle("letterSpacing")} />
             <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")} />
-            <ButtonSlider min={"10"} max={"100"} initValue={"24"} id="cursorSize" name="Cursor grote" onChange={(e) => setCursorSize(Number(e.target.value))}/>
+            <ButtonSlider min={"24"} max={"100"} initValue={"24"} id="cursorSize" name="Cursor grote" onChange={(e) => setCursorSize(Number(e.target.value))}/>
             <li>
               <button onClick={handleReset} className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
                 Reset
