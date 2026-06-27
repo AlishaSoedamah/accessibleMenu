@@ -17,20 +17,23 @@ export default function Home() {
 
   return (
     <Layout>
-        <main className="p-10 bg-white dark:bg-black sm:items-start">
+        <main className="p-10 bg-white dark:bg-black">
           <Menu showFull={showFull} setShowFull={setShowFull} onReset={handleReset}/>
           <article>
-              <section>
-                <h1 className="py-8 lg:text-7xl md:text-5xl text-3xl">{data.title}</h1>
-                <p>{data.body}</p>
-                <h1 className="py-8 lg:text-4xl md:text-3xl text-2xl">{data.title_two}</h1>
-                <p>{data.body_two}</p>
-                <img className="h-96 w-48 object-contain" src="/accessibleMenu/images/blindenstok.jpg" alt="blindenstok die licht geeft in het donker" />
-              </section>
-              <section>
-                <h1 className="py-8 lg:text-7xl md:text-5xl text-3xl">Interactieve elementen</h1>
-                <Form />
-              </section>
+              <article>
+                <section className="flex">
+                <div className="w-1/2">
+                  <h1 className="py-8 lg:text-7xl md:text-5xl text-3xl">{data.title}</h1>
+                  <p>{data.body}</p>
+                  <h2 className="py-8 lg:text-4xl md:text-3xl text-2xl">{data.title_two}</h2>
+                  <p>{data.body_two}</p>
+                </div>
+                  <img className="w-1/2" src="/accessibleMenu/images/blindenstok.jpg" alt="blindenstok die licht geeft in het donker" />
+                </section>
+                <section className="lg:flex md:w-full">
+                    <Form />
+                </section>
+              </article>
           </article>
         </main>
     </Layout>
