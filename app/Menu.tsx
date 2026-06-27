@@ -80,7 +80,7 @@ export default function Menu({ showFull, setShowFull }: MenuProps) {
         top: cursorPos.y,
         width: cursorSize,
         height: cursorSize,
-        transform: 'translate(-50%, -50%)',
+        transform: 'translate(-30%, -10%)',
         pointerEvents: 'none',
         zIndex: 9999,
     }}
