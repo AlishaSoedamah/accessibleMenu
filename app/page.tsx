@@ -10,11 +10,14 @@ import { content as summary } from "@/public/compact";
 export default function Home() {
   const [showFull, setShowFull] = useState(true);
   const data = showFull ? full : summary;
+  const handleReset = () => {
+    setShowFull(true);
+  };
 
   return (
     <Layout>
         <main className="p-10 flex flex-1 w-full max-w-3xl flex-col items-center bg-white dark:bg-black sm:items-start">
-          <Menu showFull={showFull} setShowFull={setShowFull} />
+          <Menu showFull={showFull} setShowFull={setShowFull} onReset={handleReset}/>
             <div>
             </div>
             <article>
