@@ -23,15 +23,16 @@ const handleStyle = (property: keyof Omit<CSSStyleDeclaration, "length" | "paren
     (document.documentElement.style as any)[property] = e.target.value + "px";
   };
 
-const handleFilter = (filter: string) =>
-  (e: React.ChangeEvent<HTMLInputElement>) => {
-    document.documentElement.style.filter = `${filter}(${e.target.value}%)`;
-  };
+const applyFilters = (invert: boolean, sat: number) => {
+  document.documentElement.style.filter = `invert(${invert ? 1 : 0}) saturate(${sat}%)`;
+};
 
 export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
     const sliderLetterBig = useRef<HTMLInputElement>(null);
     const sliderLineHeight = useRef<HTMLInputElement>(null);
     const sliderSpacing = useRef<HTMLInputElement>(null);
+    const [inverted, setInverted] = useState(false);
+    const [saturation, setSaturation] = useState(100);
     const [cursorSize, setCursorSize] = useState(26)
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 })
     const [cursorVisible, setCursorVisible] = useState(false)
@@ -46,12 +47,26 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
         document.documentElement.classList.remove("highcontrast");
         document.documentElement.classList.remove("alt-font");
         setCursorSize(Number("24"));
+        setInverted(false);
+        setSaturation(100);
         if (sliderLetterBig.current) sliderLetterBig.current.value = "10";
         if (sliderLineHeight.current) sliderLineHeight.current.value = "20";
         if (sliderSpacing.current) sliderSpacing.current.value = "0";
 
   onReset();
 };
+
+    const toggleInvert = () => {
+        const newInverted = !inverted;
+        setInverted(newInverted);
+        applyFilters(newInverted, saturation);
+    };
+
+    const handleSaturation = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const val = Number(e.target.value);
+        setSaturation(val);
+        applyFilters(inverted, val);
+    };
 
   const toggleBorders = () => {
     const root = document.documentElement;
@@ -104,7 +119,7 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
     />
     )}
     <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
-    <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black">
+    <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0">
         <nav>
           <ul role="list">
             <li>
@@ -118,10 +133,11 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
             <Button btnId="hoogContrast" name="Hoog contrast" onClick={toggleHighContrast} />
             <Button btnId="borders" name="Borders" onClick={toggleBorders} />
             <Button btnId="customFont" name="Custom lettertype" onClick={toggleChangeFont} />
+            <Button btnId="lightMode" name="Negatief contrast" onClick={toggleInvert}/>
             <ButtonSlider min={"16"} max={"30"} initValue={"16"} ref={sliderLetterBig} id="letterBig" name="Letter grote" onChange={handleStyle("fontSize")} />
             <ButtonSlider min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")} />
             <ButtonSlider min={"0"} max={"20"} initValue={"0"} ref={sliderSpacing} id="lineSpacing" name="Letter Spacing" onChange={handleStyle("letterSpacing")} />
-            <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")} />
+            <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleSaturation} />
             <ButtonSlider min={"24"} max={"100"} initValue={"24"} id="cursorSize" name="Cursor grote" onChange={(e) => setCursorSize(Number(e.target.value))}/>
             <li>
               <button onClick={handleReset} className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">

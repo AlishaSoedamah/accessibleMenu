@@ -18,8 +18,15 @@ export default function Home() {
     <Layout>
         <main className="p-10 flex flex-1 w-full max-w-3xl flex-col items-center bg-white dark:bg-black sm:items-start">
           <Menu showFull={showFull} setShowFull={setShowFull} onReset={handleReset}/>
-            <div>
-            </div>
+          <nav>
+            <ul>
+              <li>Home</li>
+              <li>Over ons</li>
+              <li>Projecten</li>
+            </ul>
+          </nav>
+            {/* <div>
+            </div> */}
             <article>
               <section>
                 <h1 className="py-8 lg:text-7xl md:text-4xl">{data.title}</h1>
