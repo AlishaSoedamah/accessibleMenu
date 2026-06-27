@@ -79,6 +79,7 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
         document.documentElement.classList.toggle(className);
     };
 
+  //bron: Claude
   useEffect(() => {
         const move = (e: MouseEvent) => {
             setCursorPos({ x: e.clientX, y: e.clientY })
