@@ -128,7 +128,7 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
     <button tabIndex={1} ref={btnRef} className="fixed left-0 bg-white top-0 w-auto cursor-pointer text-white font-bold" popoverTarget="mypopover">
         <img src="/accessibleMenu/images/toegankelijkheid.svg" alt="Toegangkelijkheidsmenu" />
     </button>
-    <header ref={popoverRef} id="mypopover" popover="auto" className="fixed left-0 right-0 top-0">
+    <header tabIndex={1} ref={popoverRef} id="mypopover" popover="auto" className="fixed left-0 right-0 top-0">
         <nav>
           <ul role="list">
             <Button btnId="summary" name= {showFull ? "Korte tekst" : "Volledige tekst"} onClick={() => setShowFull(!showFull)}/>
@@ -136,11 +136,11 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
             <Button btnId="borders" name="Borders" onClick={toggleBorders} />
             <Button btnId="customFont" name="Custom lettertype" onClick={() => toggleClass("alt-font")} />
             <Button btnId="lightMode" name="Negatief contrast" onClick={toggleInvert}/>
-            <ButtonSlider id="letterBig" min={"16"} max={"30"} initValue={"16"} ref={sliderLetterBig} name="Letter grote" onChange={handleStyle("fontSize")} />
-            <ButtonSlider id="lineHeight" min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} name="Line Height" onChange={handleStyle("lineHeight")} />
+            <ButtonSlider id="lineHeight" min={"20"} max={"100"} initValue={"20"} ref={sliderLineHeight} name="Line Height" onChange={handleStyle("lineHeight")} />
             <ButtonSlider id="lineSpacing" min={"0"} max={"20"} initValue={"0"} ref={sliderSpacing} name="Letter Spacing" onChange={handleStyle("letterSpacing")} />
             <ButtonSlider id="saturation" min={"0"} max={"100"} initValue={"100"} name="Saturate" onChange={handleSaturation} />
             <ButtonSlider id="cursorSize" min={"24"} max={"100"} initValue={"24"}  name="Cursor grote" onChange={(e) => setCursorSize(Number(e.target.value))}/>
+            <ButtonSlider id="letterBig" min={"16"} max={"30"} initValue={"16"} ref={sliderLetterBig} name="Letter grote" onChange={handleStyle("fontSize")} />
             <li>
               <button onClick={handleReset} className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
                 Reset

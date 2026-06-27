@@ -25,6 +25,8 @@ body {
 }
 
 h1, h2, h3 {
+  z-index: 1;
+  position: relative;
   color: var(--foreground);
   font-family: var(--font-header);
 }
@@ -71,6 +73,11 @@ input {
   height: 4px;
 }
 
+aside {
+  padding: 10px;
+  margin-left: 10px;
+}
+
 button {
   padding: 10px;
   margin: 10px 0;
@@ -86,13 +93,13 @@ button > img {
   border: 3px solid var(--high-contrast);
 }
 
-.bg-red {
-  background: var(--red);
-}
-
 h1, h2, h3, h4, a, div, textarea {
   border: var(--border-toggle);
   --red: rgb(255, 0, 0);
+}
+
+.bg-red {
+  background: var(--red);
 }
 
 .highcontrast:root {
@@ -102,4 +109,9 @@ h1, h2, h3, h4, a, div, textarea {
 .alt-font {
   --font-body: 'Lexend', sans-serif;
   --font-header: 'Lexend', sans-serif;
+}
+
+.from-section {
+  align-items: center;
+  justify-content: center;
 }

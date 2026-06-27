@@ -20,17 +20,17 @@ export default function Home() {
         <main className="p-10 bg-white dark:bg-black">
           <Menu showFull={showFull} setShowFull={setShowFull} onReset={handleReset}/>
           <article>
-              <article>
-                <section className="flex">
-                <div className="w-1/2">
+              <article className="lg:px-16 w-full" >
+                <section className="lg:flex md:block w-full">
+                <div className="lg:w-1/2">
                   <h1 className="py-8 lg:text-7xl md:text-5xl text-3xl">{data.title}</h1>
                   <p>{data.body}</p>
                   <h2 className="py-8 lg:text-4xl md:text-3xl text-2xl">{data.title_two}</h2>
                   <p>{data.body_two}</p>
                 </div>
-                  <img className="w-1/2" src="/accessibleMenu/images/blindenstok.jpg" alt="blindenstok die licht geeft in het donker" />
+                  <img className="lg:w-1/2 md:1/3" src="/accessibleMenu/images/blindenstok.jpg" alt="blindenstok die licht geeft in het donker" />
                 </section>
-                <section className="lg:flex md:w-full">
+                <section className="from-section lg:flex md:w-full py-20">
                     <Form />
                 </section>
               </article>

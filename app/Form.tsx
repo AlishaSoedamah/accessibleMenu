@@ -12,7 +12,7 @@ export default function Form()
                 <a href="tel:+31628386697">+31 6 28 38 66 97</a>
             </aside>
             <form className="lg:w-2/4 md:w-full gap-x-1 contact-card rounded p-10" action="#" method="post">
-                <h2>Stuur een bericht</h2>
+                <h2 className="py-6 lg:text-4xl md:text-3xl text-2xl">Stuur een bericht</h2>
                 <label htmlFor="name">Naam</label>
                 <input className="p-4 w-full rounded" type="text" id="name" name="name" />
                 <label htmlFor="email">E-mail</label>
