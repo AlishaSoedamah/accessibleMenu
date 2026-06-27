@@ -27,7 +27,19 @@ h1, h2, h3 {
   color: var(--foreground);
 }
 
+form {
+  border: 3px solid var(--high-contrast);
+  > textarea {
+    border: 3px solid var(--high-contrast);
+  }
+  > input {
+    height: 30px;
+    border: 3px solid var(--high-contrast);
+  }
+}
+
 label {
+  display: block;
   color: var(--foreground);
 }
 
@@ -62,10 +74,6 @@ button {
 
 [popover]:popover-open {
   border: 3px solid var(--high-contrast);
-}
-
-form > input {
-  height: 30px;
 }
 
 .bg-red {

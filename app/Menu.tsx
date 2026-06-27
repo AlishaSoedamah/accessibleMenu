@@ -125,7 +125,7 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
         alt=""
     />
     )}
-    <button ref={btnRef} className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold" popoverTarget="mypopover">Toegankelijkheidsmenu</button>
+    <button tabIndex={1} ref={btnRef} className="fixed left-0 top-0 w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold" popoverTarget="mypopover">Toegankelijkheidsmenu</button>
     <header ref={popoverRef} id="mypopover" popover="auto" className="fixed left-0 right-0 top-0">
         <nav>
           <ul role="list">

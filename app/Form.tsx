@@ -2,15 +2,15 @@ export default function Form()
 {
 	return (
 		<>
-		<form className="contact-card" action="#" method="post">
+		<form className="contact-card rounded p-10" action="#" method="post">
             <h2>Stuur een bericht</h2>
             <label htmlFor="name">Naam</label>
-            <input type="text" id="name" name="name" placeholder="Vul je naam in" />
+            <input className="p-4" type="text" id="name" name="name" />
             <label htmlFor="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="Vul je e-mailadres in" />
+            <input className="p-4" type="email" id="email" name="email"/>
             <label htmlFor="message">Bericht</label>
-            <textarea id="message" name="message" placeholder="Waar kunnen we je mee helpen?"></textarea>
-            <button type="submit">Verstuur bericht →</button>
+            <textarea className="p-10" id="message" name="message"></textarea>
+            <input className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold" type="submit" value="Verstuur bericht →" />
         </form>
         <aside>
             <h2>Contactgegevens</h2>

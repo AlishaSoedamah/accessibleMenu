@@ -19,23 +19,16 @@ export default function Home() {
     <Layout>
         <main className="p-10 bg-white dark:bg-black sm:items-start">
           <Menu showFull={showFull} setShowFull={setShowFull} onReset={handleReset}/>
-          <nav>
-            <ul>
-              <li>Home</li>
-              <li>Over ons</li>
-              <li>Projecten</li>
-            </ul>
-          </nav>
           <article>
               <section>
-                <h1 className="py-8 lg:text-7xl md:text-4xl">{data.title}</h1>
+                <h1 className="py-8 lg:text-7xl md:text-5xl text-3xl">{data.title}</h1>
                 <p>{data.body}</p>
-                <h1 className="py-8 lg:text-4xl md:text-2xl">{data.title_two}</h1>
+                <h1 className="py-8 lg:text-4xl md:text-3xl text-2xl">{data.title_two}</h1>
                 <p>{data.body_two}</p>
+                <img className="h-96 w-48 object-contain" src="/accessibleMenu/images/blindenstok.jpg" alt="blindenstok die licht geeft in het donker" />
               </section>
               <section>
-                <h1 className="py-8 lg:text-7xl md:text-4xl">Interactieve elementen</h1>
-                <button className="btn btn-blue">Een knop</button>
+                <h1 className="py-8 lg:text-7xl md:text-5xl text-3xl">Interactieve elementen</h1>
                 <Form />
               </section>
           </article>
