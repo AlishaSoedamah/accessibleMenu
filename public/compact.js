@@ -1,8 +1,4 @@
-export const compact = {
-	blogs: [
-    {
-      heading: "Toegankelijkheidsmenu",
-      page_txt: "Dit is een test pagina"
-    },
-	]
-}
+export const content = {
+  title: "Menu demo",
+  body: "Dit is een test pagina voor de compacte versie",
+};

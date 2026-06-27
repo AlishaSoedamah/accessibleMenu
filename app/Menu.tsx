@@ -1,7 +1,13 @@
+"use client";
+
 import Button from "./Button";
 import ButtonSlider from "./ButtonSlider";
-import "react";
 import { useRef } from "react";
+
+interface MenuProps {
+  showFull: boolean;
+  setShowFull: (val: boolean) => void;
+}
 
 declare module "react" {
   interface HTMLAttributes<T> {
@@ -14,65 +20,64 @@ declare module "react" {
 const handleStyle = (property: keyof Omit<CSSStyleDeclaration, "length" | "parentRule">) =>
   (e: React.ChangeEvent<HTMLInputElement>) => {
     (document.documentElement.style as any)[property] = e.target.value + "px";
-};
+  };
 
 const handleFilter = (filter: string) =>
   (e: React.ChangeEvent<HTMLInputElement>) => {
     document.documentElement.style.filter = `${filter}(${e.target.value}%)`;
-};
+  };
 
-export default function Menu() {
+export default function Menu({ showFull, setShowFull }: MenuProps) {
+  const sliderLetterBig = useRef<HTMLInputElement>(null);
+  const sliderLineHeight = useRef<HTMLInputElement>(null);
+  const sliderSpacing = useRef<HTMLInputElement>(null);
 
-    const sliderLetterBig = useRef<HTMLInputElement>(null);
-    const sliderLineHeight = useRef<HTMLInputElement>(null);
-    const sliderSpacing = useRef<HTMLInputElement>(null);
-
-    const toggleBorders = () => {
+  const toggleBorders = () => {
     const root = document.documentElement;
     const current = getComputedStyle(root).getPropertyValue("--border-toggle").trim();
-
     root.style.setProperty(
-        "--border-toggle",
-        current === "none" ? "3px solid var(--high-contrast)" : "none"
-        );
-    };
+      "--border-toggle",
+      current === "none" ? "3px solid var(--high-contrast)" : "none"
+    );
+  };
 
-    const toggleHighContrast = () => {
-        document.documentElement.classList.toggle("highcontrast");
-    };
+  const toggleHighContrast = () => {
+    document.documentElement.classList.toggle("highcontrast");
+  };
 
-    const toggleChangeFont = () => {
-        document.documentElement.classList.toggle('alt-font');
-    };
+  const toggleChangeFont = () => {
+    document.documentElement.classList.toggle("alt-font");
+  };
 
-    const toggleCompact = () => {
-        //
-    };
-
-    return (
-        <>
-        <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
-        <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black">
-            <nav>
-                <ul role="list">
-                    <Button btnId="compact" name="Compacte tekst" onClick={toggleCompact}/>
-                    <Button btnId="hoogContrast" name="Hoog contrast" onClick={toggleHighContrast}/>
-                    <Button btnId="borders" name="Borders" onClick={toggleBorders}/>
-                    <Button btnId="customFont" name="Custom lettertype" onClick={toggleChangeFont}/>
-                    <ButtonSlider min={"10"} max={"60"} initValue={"10"} ref={sliderLetterBig} id="letterBig" name="Letter grote" onChange={handleStyle("fontSize")}/>
-                    <ButtonSlider min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")}/>
-                    <ButtonSlider min={"0"} max={"20"} initValue={"0"}  ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")}/>
-                    <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")}/>
-                    {/* <ButtonSlider id="cursorGrote" name="Cursor grote"/> */}
-                     <li>
-                        <button className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
-                            Reset
-                        </button>
-                    </li>
-
-                </ul>
-            </nav>
-        </header>
-        </>
-    )
+  return (
+    <>
+      <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
+      <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black">
+        <nav>
+          <ul role="list">
+            <li>
+              <button
+                onClick={() => setShowFull(!showFull)}
+                className="w-full cursor-pointer text-white font-bold hover:bg-black-700 border-solid border-2 border-white-500"
+              >
+                {showFull ? "Korte tekst" : "Volledige tekst"}
+              </button>
+            </li>
+            <Button btnId="hoogContrast" name="Hoog contrast" onClick={toggleHighContrast} />
+            <Button btnId="borders" name="Borders" onClick={toggleBorders} />
+            <Button btnId="customFont" name="Custom lettertype" onClick={toggleChangeFont} />
+            <ButtonSlider min={"16"} max={"30"} initValue={"16"} ref={sliderLetterBig} id="letterBig" name="Letter grote" onChange={handleStyle("fontSize")} />
+            <ButtonSlider min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")} />
+            <ButtonSlider min={"0"} max={"20"} initValue={"0"} ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")} />
+            <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")} />
+            <li>
+              <button className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
+                Reset
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </>
+  );
 }
