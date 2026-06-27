@@ -4,13 +4,14 @@ Dit is een aanvulling op de meesterproef van de minor web design en development.
 heb ik met mijn coach besproken wat mijn leerdoelen waren voor de meesterproef en hoe deze terug zouden kunnen komen in dit prototype. Uiteindelijk kwammen we tot de conlusie dat ik het toegankelijkheidsmenu ga verbeteren met meer opties zoals custom fonts/grotere cursor opties en nog meer features die ik niet op de uiteindelijke versie had kunnen maken.
 
 Filters die ik erbij wil doen:
-- [ ] groter/kleinere cursor
+- [x] groter/kleinere cursor
 - [x] custom fonts
 - [x] hoog contrast apart van de borders
 - [x] Grijstinten
 - [x] borders
 - [x] line height
 - [x] line spacing
+- [ ] reset knop
 
 
 Filters die al op de huidige site staan:

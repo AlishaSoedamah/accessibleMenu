@@ -31,9 +31,10 @@ export default function Menu({ showFull, setShowFull }: MenuProps) {
     const sliderLetterBig = useRef<HTMLInputElement>(null);
     const sliderLineHeight = useRef<HTMLInputElement>(null);
     const sliderSpacing = useRef<HTMLInputElement>(null);
-    const [cursorSize, setCursorSize] = useState(24)
+    const [cursorSize, setCursorSize] = useState(26)
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 })
     const [cursorVisible, setCursorVisible] = useState(false)
+    const cursorSrc = "/accessibleMenu/images/cursor.svg"
 
 
   const toggleBorders = () => {
@@ -71,18 +72,20 @@ export default function Menu({ showFull, setShowFull }: MenuProps) {
   return (
     <>
     {cursorVisible && (
-      <div style={{
+    <img
+        src={cursorSrc}
+        style={{
         position: 'fixed',
         left: cursorPos.x,
         top: cursorPos.y,
         width: cursorSize,
         height: cursorSize,
-        borderRadius: '50%',
-        background: 'var(--high-contrast)',
         transform: 'translate(-50%, -50%)',
         pointerEvents: 'none',
         zIndex: 9999,
-      }} />
+    }}
+        alt=""
+    />
     )}
     <button popoverTarget="mypopover">Open het toegankelijkheidsmenu</button>
     <header id="mypopover" popover="auto" className="fixed left-0 right-0 top-0 bg-black">
@@ -101,9 +104,9 @@ export default function Menu({ showFull, setShowFull }: MenuProps) {
             <Button btnId="customFont" name="Custom lettertype" onClick={toggleChangeFont} />
             <ButtonSlider min={"16"} max={"30"} initValue={"16"} ref={sliderLetterBig} id="letterBig" name="Letter grote" onChange={handleStyle("fontSize")} />
             <ButtonSlider min={"20"} max={"50"} initValue={"20"} ref={sliderLineHeight} id="lineHeight" name="Line Height" onChange={handleStyle("lineHeight")} />
-            <ButtonSlider min={"0"} max={"20"} initValue={"0"} ref={sliderSpacing} id="lineSpacing" name="Line Spacing" onChange={handleStyle("letterSpacing")} />
+            <ButtonSlider min={"0"} max={"20"} initValue={"0"} ref={sliderSpacing} id="lineSpacing" name="Letter Spacing" onChange={handleStyle("letterSpacing")} />
             <ButtonSlider min={"0"} max={"100"} initValue={"100"} id="saturation" name="Saturate" onChange={handleFilter("saturate")} />
-            <ButtonSlider min={"0"} max={"100"} initValue={"24"} id="cursorSize" name="Cursor grote" onChange={(e) => setCursorSize(Number(e.target.value))}/>
+            <ButtonSlider min={"10"} max={"100"} initValue={"24"} id="cursorSize" name="Cursor grote" onChange={(e) => setCursorSize(Number(e.target.value))}/>
             <li>
               <button className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
                 Reset
