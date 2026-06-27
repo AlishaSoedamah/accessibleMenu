@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <Layout>
-        <main className="p-10 flex flex-1 w-full max-w-3xl flex-col items-center bg-white dark:bg-black sm:items-start">
+        <main className="p-10 bg-white dark:bg-black sm:items-start">
           <Menu showFull={showFull} setShowFull={setShowFull} onReset={handleReset}/>
           <nav>
             <ul>
@@ -30,10 +30,11 @@ export default function Home() {
               <section>
                 <h1 className="py-8 lg:text-7xl md:text-4xl">{data.title}</h1>
                 <p>{data.body}</p>
-                <div className="box-deco" ></div>
+                <h1 className="py-8 lg:text-4xl md:text-2xl">{data.title_two}</h1>
+                <p>{data.body_two}</p>
               </section>
               <section>
-                <h1 className="py-8 lg:text-7xl md:text-4xl">Interactieve</h1>
+                <h1 className="py-8 lg:text-7xl md:text-4xl">Interactieve elementen</h1>
                 <button className="btn btn-blue">Een knop</button>
                 <Form />
               </section>
