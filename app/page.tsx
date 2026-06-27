@@ -10,6 +10,7 @@ import { content as summary } from "@/public/compact";
 export default function Home() {
   const [showFull, setShowFull] = useState(true);
   const data = showFull ? full : summary;
+
   const handleReset = () => {
     setShowFull(true);
   };
@@ -25,9 +26,7 @@ export default function Home() {
               <li>Projecten</li>
             </ul>
           </nav>
-            {/* <div>
-            </div> */}
-            <article>
+          <article>
               <section>
                 <h1 className="py-8 lg:text-7xl md:text-4xl">{data.title}</h1>
                 <p>{data.body}</p>
@@ -38,7 +37,7 @@ export default function Home() {
                 <button className="btn btn-blue">Een knop</button>
                 <Form />
               </section>
-            </article>
+          </article>
         </main>
     </Layout>
   );

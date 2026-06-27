@@ -11,7 +11,7 @@ Filters die ik erbij wil doen:
 - [x] borders
 - [x] line height
 - [x] line spacing
-- [ ] reset knop
+- [x] reset knop
 
 
 Filters die al op de huidige site staan:

@@ -15,7 +15,7 @@ const ButtonSlider = forwardRef<HTMLInputElement, ButtonProps>(
 	<li>
       <label className="block text-sm font-medium text-heading">
         {name}
-        <input ref={ref} id={id} type="range" min={min} max={max} defaultValue={initValue} className="w-full bg-white -full appearance-none cursor-pointer" onChange={onChange} />
+        <input ref={ref} id={id} type="range" min={min} max={max} defaultValue={initValue} className="w-full bg-white appearance-none cursor-pointer" onChange={onChange} />
       </label>
 	</li>
     );
