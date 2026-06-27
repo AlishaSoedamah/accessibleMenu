@@ -143,7 +143,7 @@ export default function Menu({ showFull, setShowFull, onReset }: MenuProps) {
             <ButtonSlider id="cursorSize" min={"24"} max={"100"} initValue={"24"}  name="Cursor grote" onChange={(e) => setCursorSize(Number(e.target.value))}/>
             <ButtonSlider id="letterBig" min={"16"} max={"30"} initValue={"16"} ref={sliderLetterBig} name="Letter grote" onChange={handleStyle("fontSize")} />
             <li>
-              <button onClick={handleReset} className="w-full cursor-pointer bg-red hover:bg-pink-100 text-white font-bold">
+              <button onClick={handleReset} className="w-full cursor-pointer bg-red text-white font-bold">
                 Reset
               </button>
             </li>

@@ -5,6 +5,7 @@
   --foreground: #171717;
   --red: #AF2900;
   --high-contrast: white;
+  --border-clr: rgb(193, 193, 193);
   --border-toggle: none;
   --font-body: 'Inter', sans-serif;
   --font-header: 'Young Serif', sans-serif;
@@ -14,6 +15,14 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --border-clr: rgb(255, 255, 255);
+    --high-contrast: white;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --high-contrast: rgb(4, 0, 255);
   }
 }
 
@@ -27,27 +36,30 @@ body {
 h1, h2, h3 {
   z-index: 1;
   position: relative;
-  color: var(--foreground);
   font-family: var(--font-header);
 }
 
 form {
-  border: 3px solid var(--high-contrast);
+  border: 3px solid var(--border-clr);
   > textarea {
-    border: 3px solid var(--high-contrast);
+    border: 3px solid var(--border-clr);
   }
   > input:not(:last-of-type) {
     height: 30px;
-    border: 3px solid var(--high-contrast);
+    border: 3px solid var(--border-clr);
   }
   > input:last-of-type {
-    height: 50px;
+    height: auto;
+    width: auto;
+  }
+  > label {
+    color: var(--foreground);
   }
 }
 
 label {
   display: block;
-  color: var(--foreground);
+  color: white;
 }
 
 header, header * {
@@ -55,7 +67,7 @@ header, header * {
 }
 
 header {
-  background: var(--background);
+  background: black;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: normal;
@@ -74,8 +86,17 @@ input {
 }
 
 aside {
+  margin-right: 20px;
   padding: 10px;
-  margin-left: 10px;
+}
+
+form {
+  margin-left: 20px;
+}
+
+textarea {
+  padding: 0 20px;
+  margin: 0;
 }
 
 button {
@@ -89,13 +110,23 @@ button > img {
   aspect-ratio: 1;
 }
 
+mark {
+  display: inline-block;
+  margin-top: 50px;
+  font-size: 1.2em;
+  background-color: transparent;
+  border: 2px solid var(--high-contrast);
+  color: var(--foreground);
+  padding: 10px 25px;
+  border-radius: 30px;
+}
+
 [popover]:popover-open {
   border: 3px solid var(--high-contrast);
 }
 
 h1, h2, h3, h4, a, div, textarea {
   border: var(--border-toggle);
-  --red: rgb(255, 0, 0);
 }
 
 .bg-red {
@@ -104,6 +135,8 @@ h1, h2, h3, h4, a, div, textarea {
 
 .highcontrast:root {
   --high-contrast: rgb(0, 255, 4);
+  --border-clr: rgb(0, 255, 4);
+  --red: red;
 }
 
 .alt-font {
