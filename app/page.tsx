@@ -31,7 +31,7 @@ export default function Home() {
                 </div>
                   <img className="p-10 lg:w-1/2 md:w-1/3 flex-shrink-0 object-cover rounded" src="/accessibleMenu/images/blindenstok.jpg" alt="blindenstok die licht geeft in het donker" />
                 </section>
-                <section className="from-section lg:flex md:w-full py-20">
+                <section className=" lg:flex md:w-full">
                     <Form />
                 </section>
               </article>

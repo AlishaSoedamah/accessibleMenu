@@ -90,10 +90,6 @@ aside {
   padding: 10px;
 }
 
-form {
-  margin-left: 20px;
-}
-
 textarea {
   padding: 0 20px;
   margin: 0;
@@ -147,4 +143,11 @@ h1, h2, h3, h4, a, div, textarea {
 .from-section {
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 700px)
+{
+  form {
+    margin-left: 20px;
+  }
 }

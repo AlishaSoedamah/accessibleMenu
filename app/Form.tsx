@@ -11,12 +11,12 @@ export default function Form()
                 <h3 className="py-4 text-2xl">Telefoon</h3>
                 <a href="tel:+31628386697">+31 6 28 38 66 97</a>
             </aside>
-            <form className="lg:w-2/4 md:w-full gap-x-1 contact-card rounded p-10" action="#" method="post">
+            <form className="lg:w-2/4 md:w-full sm:w-full rounded p-4 sm:p-8 lg:p-10" action="#" method="post">
                 <h2 className="py-6 lg:text-4xl md:text-3xl text-2xl">Stuur een bericht</h2>
                 <label htmlFor="name">Naam</label>
-                <input className="p-4 lg:w-1/2 md:w-full sm:w-full rounded" type="text" id="name" name="name" />
+                <input className="p-4 lg:w-1/2 rounded" type="text" id="name" name="name" />
                 <label htmlFor="email">E-mail</label>
-                <input className="p-4 lg:w-1/2 md:w-full sm:w-full rounded" type="email" id="email" name="email"/>
+                <input className="p-4 lg:w-1/2 rounded" type="email" id="email" name="email"/>
                 <label htmlFor="message">Bericht</label>
                 <textarea className="p-10 w-full rounded" id="message" name="message"></textarea>
                 <input className="w-auto p-4 my-4 cursor-pointer bg-red text-white font-bold rounded" type="submit" value="Verstuur bericht →" />

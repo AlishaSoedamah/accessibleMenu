@@ -31,6 +31,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Young+Serif&display=swap" rel="stylesheet"></link>
           <title>Menu</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <meta name="menu" content="menu voor herk"/>
         </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
